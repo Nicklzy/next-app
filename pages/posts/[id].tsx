@@ -15,6 +15,8 @@ const Post: React.FC<Props> = ({postData}) => {
                 {postData.id}
                 <br/>
                 {postData.date}
+                <br/>
+                <div dangerouslySetInnerHTML={{__html: postData.contentHtml}}/>
             </Layout>
         </>
     );
@@ -28,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = () => {
     };
 };
 export const getStaticProps: GetStaticProps<{}, ParamId['params']> = async ({params}) => {
-    const postData = getPostData(params!.id);
+    const postData = await getPostData(params!.id);
     return {
         props: {
             postData
