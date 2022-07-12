@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Avatar from '../public/avatar.png'
 
 interface IProps {
-    home: boolean;
+    home?: boolean;
 }
 
 const name = 'Nick';
